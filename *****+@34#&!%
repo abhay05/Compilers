@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+
+// COOK82C Hussain Set Codechef
+
+typedef long long int ll;
+
+ll x[100000000];
+
+using namespace std;
+
+int main()
+{
+	int m,n;
+	cin>>n>>m;
+	ll a;
+	queue<ll>t,w;
+	for(int i=0;i<n;i++){cin>>x[i];}
+	sort(x,x+n);
+	int j=1;
+	for(int i=n-1;i>=0;i--){t.push(x[i]);}
+	for(int op=0;op<m;op++){
+		int y;
+		cin>>y;
+		ll r;
+		for(;j<=y;j++){
+			
+			if(t.front()>=w.front()){r=t.front();t.pop();}
+			else{r=w.front();w.pop();}
+			w.push(r>>1);
+			
+		}
+		cout<<r<<'\n';
+	}
+}
